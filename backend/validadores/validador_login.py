@@ -1,6 +1,6 @@
 from backend.models.usuarios import Usuario
 
-def validar_cadastro(nome_completo, senha):
+def validar_login(nome_completo, senha):
 
     if not nome_completo or not senha:
         return False, "Todos os Campos Devem Ser Preenchidos."
