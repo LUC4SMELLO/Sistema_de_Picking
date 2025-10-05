@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tirar foto (input file)</title>
+
+</head>
+
+<body>
+
+  <h2>Tirar foto (input file)</h2>
+
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="foto" accept="image/*" capture="environment">
+    <button type="submit">Enviar</button>
+  </form>
+  
+</body>
+</html>
