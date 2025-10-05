@@ -46,11 +46,10 @@ class Usuario:
         WHERE nome_completo = ?
         """, (nome_completo,)
         )
-        
+
         resultado = cursor.fetchall()
 
         conexao.commit()
         conexao.close()
-
 
         return resultado
