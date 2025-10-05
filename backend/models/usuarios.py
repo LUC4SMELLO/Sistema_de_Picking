@@ -42,15 +42,15 @@ class Usuario:
 
         cursor.execute(
         """
-        SELECT 1 FROM TabelaUsuarios
+        SELECT * FROM TabelaUsuarios
         WHERE nome_completo = ?
-        VALUES (?)
         """, (nome_completo,)
         )
+        
+        resultado = cursor.fetchall()
 
         conexao.commit()
         conexao.close()
 
-        resultado = cursor.fetchone()
 
         return resultado
