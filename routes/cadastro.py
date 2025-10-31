@@ -1,8 +1,9 @@
-from flask import Blueprint, request, flash, redirect, url_for, render_template
+from flask import Blueprint, request, flash, redirect, url_for, render_template, session
 
 from backend.models.usuarios import Usuario
 
 from backend.validadores.validador_cadastro import validar_cadastro
+
 
 cadastro_bp = Blueprint("cadastro", __name__)
 
@@ -22,9 +23,12 @@ def cadastro():
         else:
             
             novo_usuario = Usuario(nome_completo, senha)
-
             novo_usuario.inserir_usuario()
 
+            usuario_buscado = Usuario.buscar_usuario(nome_completo, senha)
+
+            session["username"] = nome_completo
+            session["user_id"] = usuario_buscado[0]
             return redirect(url_for("picking.picking"))
 
     return render_template("cadastro.html")
