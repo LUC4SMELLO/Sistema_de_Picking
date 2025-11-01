@@ -1,0 +1,47 @@
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+header img {
+    height: 70px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 40px;
+}
+
+.caminhao {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.caminhao h2 {
+    margin: 0;
+    cursor: pointer;
+    color: #000000;
+}
+
+.baia {
+    margin-left: 15px;
+    display: none;
+}
+
+.baia h3 {
+    margin: 10px 0 5px;
+    color: #444;
+}
+
+.produto {
+    margin-left: -25px;
+    margin-top: 10px;
+}

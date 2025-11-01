@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caminhões</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/caminhoes.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Sistema de Picking</h1>
+        <img src="{{ url_for('static', filename='images/logo_dbcambui_2.png') }}" alt="Logo da Empresa">
+    </header>
+
+    <h1>Lista de Cargas</h1>
+
+    {% for mapa, baias in caminhoes.items() %}
+    <div class="caminhao">
+        <h2 onclick="toggleBaias('{{ mapa }}')">Caminhão {{ mapa }}</h2>
+        <div id="baias-{{ mapa }}" class="baia">
+            {% for baia, produtos in baias.items() %}
+                <h3>Baia: {{ baia }}</h3>
+                <ul>
+                    {% for item in produtos %}
+                        <li class="produto">{{ item.produto }} — <strong>{{ item.quantidade }}</strong></li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+
+    <script>
+        function toggleBaias(mapa) {
+            const div = document.getElementById("baias-" + mapa);
+            div.style.display = div.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>
