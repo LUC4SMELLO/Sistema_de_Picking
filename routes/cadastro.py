@@ -25,10 +25,10 @@ def cadastro():
             novo_usuario = Usuario(nome_completo, senha)
             novo_usuario.inserir_usuario()
 
-            usuario_buscado = Usuario.buscar_usuario(nome_completo, senha)
+            usuario_buscado = Usuario.buscar_usuario(nome_completo)
 
             session["username"] = nome_completo
             session["user_id"] = usuario_buscado[0]
-            return redirect(url_for("picking.picking"))
+            return redirect(url_for("caminhoes.caminhoes"))
 
     return render_template("cadastro.html")

@@ -15,7 +15,7 @@ def login():
         nome_completo = request.form.get("nome_completo").rstrip()
         senha = request.form.get("senha").rstrip()
 
-        usuario_buscado = Usuario.buscar_usuario(nome_completo, senha)
+        usuario_buscado = Usuario.buscar_usuario(nome_completo)
 
         valido, mensagem = validar_login(nome_completo, senha)
         if not valido:
@@ -25,6 +25,6 @@ def login():
         else:
             session["username"] = nome_completo
             session["user_id"] = usuario_buscado[0]
-            return redirect(url_for("picking.picking"))
+            return redirect(url_for("caminhoes.caminhoes"))
     
     return render_template("login.html")
